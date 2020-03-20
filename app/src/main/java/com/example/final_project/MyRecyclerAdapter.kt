@@ -4,13 +4,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.firebase.database.FirebaseDatabase
 import org.json.JSONArray
 
 class MyRecyclerAdapter(fragmentActivity: FragmentActivity, val dataSource: JSONArray) : RecyclerView.Adapter<MyRecyclerAdapter.Holder>() {
@@ -63,12 +63,25 @@ class MyRecyclerAdapter(fragmentActivity: FragmentActivity, val dataSource: JSON
             .into(holder.image)
 
         holder.layout.setOnClickListener{
-
             Toast.makeText(thiscontext,holder.titleTextView.text.toString(),Toast.LENGTH_SHORT).show()
 
+
+            val image:String = dataSource.getJSONObject(position).getString("image").toString()
+            val title:String = dataSource.getJSONObject(position).getString("title").toString()
+            val description:String = dataSource.getJSONObject(position).getString("price").toString()
+
+            val detail = fragment_detail().newInstance(image,title,description)
+            val transaction : FragmentTransaction = fm!!.beginTransaction()
+            transaction.replace(R.id.layout,detail,"detail")
+            transaction.addToBackStack("detail")
+            transaction.commit()
         }
 
+
+
     }
+
+
 
 
 }

@@ -20,7 +20,7 @@ class fragment_menu : Fragment() {
     ): View? {
         val view : View = inflater.inflate(R.layout.fragment_fragment_menu, container, false)
         val button1 : Button = view.findViewById(R.id.btnPrice)
-        val button2 : Button = view.findViewById(R.id.btnGrap)
+
         button1.setOnClickListener {
             val camera = Recycler_view()
             val fm = fragmentManager
@@ -29,14 +29,7 @@ class fragment_menu : Fragment() {
             transaction.addToBackStack("listview")
             transaction.commit()
         }
-//        button2.setOnClickListener {
-//            val s = DataRealtime()
-//            val fm = fragmentManager
-//            val transaction: FragmentTransaction = fm!!.beginTransaction()
-//            transaction.replace(R.id.layout, s, "listview")
-//            transaction.addToBackStack("listview")
-//            transaction.commit()
-//        }
+
 
         return view
     }

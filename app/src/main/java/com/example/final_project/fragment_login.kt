@@ -22,6 +22,7 @@ import com.facebook.login.widget.LoginButton
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
 
 /**
  * A simple [Fragment] subclass.
@@ -89,7 +90,6 @@ class fragment_login : Fragment() {
             })
 
 
-
         val button : Button = view.findViewById(R.id.button_login)
         button.setOnClickListener {
             var username: EditText = view.findViewById(R.id.username)
@@ -104,6 +104,7 @@ class fragment_login : Fragment() {
             }else if(this.pass.toString().isEmpty()){
                 Toast.makeText(context,"Please Enter your Password ", Toast.LENGTH_LONG).show()
             }else if(this.username.toString() == "60160353" || this.pass.toString() == "60160353"){
+//            }else if(this.username.toString() == "60160353" || this.pass.toString() == "60160353"){
                 Toast.makeText(context,"Login Success ", Toast.LENGTH_LONG).show()
 
                 val listview = Recycler_view()

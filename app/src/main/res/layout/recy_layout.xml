@@ -4,7 +4,6 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white"
     android:padding="16dp">
 
     <ImageView
@@ -31,6 +30,7 @@
             android:layout_height="wrap_content"
             android:text="Description"
             android:textSize="18sp"/>
+
 
     </LinearLayout>
 

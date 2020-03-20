@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.FirebaseDatabase
 import org.json.JSONObject
 
 /**
@@ -32,6 +34,8 @@ class Recycler_view : Fragment() {
         //ตั้งค่า Adapter
         val adapter = MyRecyclerAdapter(activity!!,jsonArray)
         recyclerView.adapter = adapter
+
+
 
         return view
     }
